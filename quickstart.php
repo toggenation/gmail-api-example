@@ -23,6 +23,7 @@ if (php_sapi_name() != 'cli') {
 
 use Google\Client;
 use Google\Service\Gmail;
+use Google\Service\Gmail\Message;
 
 /**
  * Returns an authorized API client.
@@ -32,8 +33,8 @@ function getClient()
 {
     $client = new Client();
     $client->setApplicationName('Gmail API PHP Quickstart');
-    $client->setScopes('https://www.googleapis.com/auth/gmail.addons.current.message.readonly');
-    $client->setAuthConfig('credentials.json');
+    $client->setScopes(Gmail::MAIL_GOOGLE_COM);
+    $client->setAuthConfig('client_secret_430939513598-le4pida7h6467kvvr552ebhmjiurj5cr.apps.googleusercontent.com.json');
     $client->setAccessType('offline');
     $client->setPrompt('select_account consent');
 
@@ -87,6 +88,21 @@ try{
     // Print the labels in the user's account.
     $user = 'me';
     $results = $service->users_labels->listUsersLabels($user);
+
+    $email = <<<HERE
+    From: James McDonald <toggen.yt@gmail.com
+    To: toggen.yt@gmail.com
+    Subject: Test from quickstart
+
+
+    Body here
+    HERE;
+
+    $message = new Message();
+
+    $message->setRaw(base64_encode($email));
+
+    $result = $service->users_messages->send('toggen.yt@gmail.com', $message);
 
     if (count($results->getLabels()) == 0) {
         print "No labels found.\n";
