@@ -4,7 +4,6 @@
             "Gmail"
         ]
     },
-    
     "name": "toggenation/gmail-api-example",
     "description": "Interact with Gmail API",
     "type": "library",

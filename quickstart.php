@@ -90,6 +90,8 @@ try{
 
     $results = $service->users_labels->listUsersLabels($user);
 
+    // RFC 2822 Compliant email
+    // https://developers.google.com/gmail/api/guides/sending#creating_messages
     $email = <<<HERE
     From: James McDonald <toggen.yt@gmail.com
     To: Rodney Dangles <toggen.yt@gmail.com>
