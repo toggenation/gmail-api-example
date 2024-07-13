@@ -1,0 +1,26 @@
+{
+    "extra": {
+        "google/apiclient-services": [
+            "Gmail"
+        ]
+    },
+    
+    "name": "toggenation/gmail-api-example",
+    "description": "Interact with Gmail API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Toggenation\\GmailApiExample\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "James McDonald",
+            "email": "james@toggen.com.au"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.17"
+    }
+}
