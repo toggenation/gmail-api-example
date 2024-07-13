@@ -1,14 +1,16 @@
 # Google OAuth2 Modern Authentication and GMail API
 
+Youtube video: [https://www.youtube.com/watch?v=ZzJJP4tCDec](https://www.youtube.com/watch?v=ZzJJP4tCDec)
+
 Clone this repo
 
 ```sh
 composer install
 ```
 
-Goto https://console.cloud.google.com/
+Goto [https://console.cloud.google.com/](https://console.cloud.google.com/)
 
-Create a credential and consent screen. In Google Cloud Console.
+Create a credential and consent screen in Google Cloud Console ([https://github.com/toggenation/gmail-email-send](https://github.com/toggenation/gmail-email-send) for better instructions on doing this)
 
 When adding use local redirect URI `http://localhost/getcode`
 
