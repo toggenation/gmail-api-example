@@ -87,11 +87,12 @@ try{
 
     // Print the labels in the user's account.
     $user = 'me';
+
     $results = $service->users_labels->listUsersLabels($user);
 
     $email = <<<HERE
     From: James McDonald <toggen.yt@gmail.com
-    To: toggen.yt@gmail.com
+    To: Rodney Dangles <toggen.yt@gmail.com>
     Subject: Test from quickstart
 
 
