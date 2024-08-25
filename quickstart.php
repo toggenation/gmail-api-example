@@ -25,7 +25,8 @@ if (php_sapi_name() != 'cli') {
 use Google\Client;
 use Google\Service\Gmail;
 use Google\Service\Gmail\Message;
-use Toggenation\GmailApiExample\Email;
+use Toggenation\GmailApiExample\PHPMailerMessage;
+use Toggenation\GmailApiExample\SwiftMailerMessage;
 
 /**
  * Returns an authorized API client.
@@ -94,16 +95,7 @@ try {
 
     // RFC 2822 Compliant email
     // https://developers.google.com/gmail/api/guides/sending#creating_messages
-    // $email = <<<HERE
-    // From: James McDonald <toggen.yt@gmail.com>
-    // To: Rodney Dangles <toggen.yt@gmail.com>
-    // Subject: Test from quickstart
-
-
-    // Body here
-    // HERE;
-
-    $email = Email::create();
+    $email = SwiftMailerMessage::create();
 
     $message = new Message();
 
