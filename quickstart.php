@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2018 Google Inc.
  *
@@ -24,6 +25,8 @@ if (php_sapi_name() != 'cli') {
 use Google\Client;
 use Google\Service\Gmail;
 use Google\Service\Gmail\Message;
+use Toggenation\GmailApiExample\PHPMailerMessage;
+use Toggenation\GmailApiExample\SwiftMailerMessage;
 
 /**
  * Returns an authorized API client.
@@ -34,7 +37,7 @@ function getClient()
     $client = new Client();
     $client->setApplicationName('Gmail API PHP Quickstart');
     $client->setScopes(Gmail::MAIL_GOOGLE_COM);
-    $client->setAuthConfig('client_secret_430939513598-le4pida7h6467kvvr552ebhmjiurj5cr.apps.googleusercontent.com.json');
+    $client->setAuthConfig('client_secret_849655087261-3um4d8k25bu6r3vch3hk0mqd0uq893t3.apps.googleusercontent.com.json');
     $client->setAccessType('offline');
     $client->setPrompt('select_account consent');
 
@@ -83,7 +86,7 @@ function getClient()
 $client = getClient();
 $service = new Gmail($client);
 
-try{
+try {
 
     // Print the labels in the user's account.
     $user = 'me';
@@ -92,14 +95,7 @@ try{
 
     // RFC 2822 Compliant email
     // https://developers.google.com/gmail/api/guides/sending#creating_messages
-    $email = <<<HERE
-    From: James McDonald <toggen.yt@gmail.com
-    To: Rodney Dangles <toggen.yt@gmail.com>
-    Subject: Test from quickstart
-
-
-    Body here
-    HERE;
+    $email = SwiftMailerMessage::create();
 
     $message = new Message();
 
@@ -115,9 +111,8 @@ try{
             printf("- %s\n", $label->getName());
         }
     }
-}
-catch(Exception $e) {
+} catch (Exception $e) {
     // TODO(developer) - handle error appropriately
-    echo 'Message: ' .$e->getMessage();
+    echo 'Message: ' . $e->getMessage();
 }
 // [END gmail_quickstart]
